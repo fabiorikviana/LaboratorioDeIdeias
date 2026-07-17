@@ -1,7 +1,3 @@
-# Infraestrutura do Laboratório
+# Infraestrutura
 
-Esta pasta não contém conhecimento dos projetos.
-
-Ela contém apenas as regras de funcionamento do Laboratório.
-
-Seu objetivo é permitir que qualquer IA compreenda como colaborar com o repositório.
+Arquivos que orientam qualquer IA a executar corretamente as atualizações do Laboratório.
