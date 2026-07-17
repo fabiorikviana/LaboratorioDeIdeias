@@ -4,56 +4,46 @@
 
 Este protocolo é EXECUTÁVEL.
 
-Ao receber um comando operacional:
-
-- Execute imediatamente.
-- Não explique o protocolo.
-- Não peça confirmação.
-- Não apresente plano de ação.
-- Não peça caminhos de arquivos antes de explorar o repositório.
-
 ## Descoberta Inicial
 
 Antes de concluir que faltam informações:
 
-1. Inspecionar a estrutura do repositório.
-2. Localizar automaticamente a pasta `.lab`.
-3. Ler o `README.md` da raiz, se existir.
-4. Ler os arquivos de orientação existentes dentro de `.lab`.
-5. Localizar `INDEX.md` e os documentos relacionados ao assunto da conversa.
-6. Usar busca, listagem e leitura do repositório para descobrir caminhos e nomes de arquivos.
+1. Explorar o repositório.
+2. Localizar automaticamente `.lab`.
+3. Ler README.md, INDEX.md e documentos relacionados.
+4. Descobrir caminhos automaticamente.
 
-A IA não deve adivinhar caminhos, mas também não deve pedir ao usuário informações que possam ser descobertas automaticamente.
-
-Somente interromper a execução quando houver impossibilidade técnica real, como:
-
-- repositório inacessível;
-- ausência total de documentação de orientação;
-- ou ambiguidade insolúvel após a exploração do repositório.
-
-Nesse caso, informar de forma curta:
-
-- qual etapa falhou;
-- por que falhou;
-- e qual informação mínima é necessária para continuar.
+Não pedir ao usuário caminhos de arquivos que possam ser encontrados pela própria IA.
 
 ## Fluxo
 
-1. Explorar a estrutura do repositório.
-2. Ler README.md.
-3. Ler a documentação da pasta `.lab`.
-4. Ler INDEX.md.
-5. Ler os documentos relacionados.
-6. Ler a conversa atual.
-7. Integrar apenas conhecimento novo.
-8. Atualizar somente os documentos afetados.
-9. Gerar os arquivos completos.
-10. Encerrar a execução.
+1. Ler estrutura do repositório.
+2. Ler documentação do Laboratório.
+3. Ler documentos relacionados.
+4. Ler a conversa atual.
+5. Integrar apenas conhecimento novo.
+6. Atualizar somente os documentos afetados.
+7. Gerar os arquivos Markdown completos.
 
-## Resposta esperada
+## Saída da Execução
 
-- Arquivos atualizados.
-- Ou informar que nenhuma atualização foi necessária.
-- Ou, em caso de impossibilidade técnica real, informar objetivamente a etapa que falhou.
+Fluxo correto:
 
-Nunca finalizar apenas com análise, sugestões, plano de ação ou pedido de confirmação.
+GitHub (leitura)
+→ Merge
+→ Arquivos Markdown completos
+→ Usuário realiza commit/push manualmente.
+
+Nunca interpretar "Atualizar o Laboratório" como "gravar no GitHub".
+
+A disponibilidade de integração com escrita não altera este protocolo.
+
+Não criar commits, push, pull requests ou modificar o repositório automaticamente, salvo ordem explícita do usuário.
+
+## Falhas
+
+Caso exista impossibilidade técnica:
+
+- informar a etapa que falhou;
+- informar o motivo técnico;
+- informar apenas a informação mínima necessária para continuar.
